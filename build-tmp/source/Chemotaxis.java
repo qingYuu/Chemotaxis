@@ -22,7 +22,7 @@ public class Chemotaxis extends PApplet {
  	//initialize bacteria variables here 
  	size(400, 400);
  	mana = new Bacteria(40,40); 
- 	frameRate(1);
+ 	frameRate(10);
  }   
  public void draw()   
  {    
@@ -42,7 +42,7 @@ public class Chemotaxis extends PApplet {
 	}
 	public void move()
 	{
-       mX += (int)(Math.random()*3)-2;
+       mX += (int)(Math.random()*2)+1;
        mY += (int)(Math.random()*3)+2;
 
 

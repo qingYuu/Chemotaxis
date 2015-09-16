@@ -1,17 +1,23 @@
 
- Bacteria mana;
+ Bacteria [] mana;
  //declare bacteria variables here   
  void setup()   
  {     
  	//initialize bacteria variables here 
  	size(400, 400);
- 	mana = new Bacteria(40,40); 
- 	frameRate(1);
+ 	mana = new Bacteria[70]; 
+ 	for(int i= 0; i<mana.length; i++)
+ 	{
+ 		mana[i]=new Bacteria(200,200);
+ 	}
+ 	frameRate(10);
  }   
  void draw()   
  {    
+ 	//for(int)
     mana.move();
     mana.show();
+
  	//move and show the bacteria   
  }  
  class Bacteria    
@@ -26,7 +32,7 @@
 	}
 	void move()
 	{
-       mX += (int)(Math.random()*3)-2;
+       mX += (int)(Math.random()*2)+1;
        mY += (int)(Math.random()*3)+2;
 
 
