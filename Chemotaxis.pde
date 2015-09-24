@@ -1,13 +1,16 @@
 
  Bacteria [] mana;
  Bubble [] tenshi;
+ Fairy celebi;
  PImage img;
+ 
  //declare bacteria variables here   
  void setup()   
  {     
  	//initialize bacteria variables here 
  	size(1000, 1000);
     img = loadImage("kh.png");
+    //fairy= loadImage("celebi.png");
  	mana = new Bacteria[50]; 
  	for(int i= 0; i<mana.length; i++)
  	{
@@ -18,6 +21,7 @@
     {
     	tenshi[q]=new Bubble();
     }
+    celebi= new Fairy(20,20);
  	frameRate(10);
  }   
  void draw()   
@@ -34,6 +38,8 @@
     tenshi[n].move();
     tenshi[n].show();
     }
+    celebi.move();
+    celebi.show();
 
  	//move and show the bacteria   
  }  
@@ -105,4 +111,51 @@
  		stroke(225, 225, 225);
 		ellipse(aX,aY,10,10);
  	}
+ }
+ class Fairy
+ {
+ 	int fX, fY;
+ 	PImage fairyImage;
+ 	PImage fairyTwo;
+ 	Fairy(int x, int y)
+ 	{
+ 		fX =x;
+        fY =y;
+        fairyImage= loadImage("celebi.png");
+        fairyTwo= loadImage("celebinew.png");
+ 	}
+ 	void move()
+ 	{
+ 	   if ( fX <= mouseX )
+	       {
+	       	 fX +=7;
+	       } 
+       if (fX >= mouseX)
+		   {
+		     fX -=7;
+		     
+		   }
+  	  
+       if (fY <= mouseY )
+         {
+           fY +=7;
+       
+         }  
+       if (fY >= mouseY) 
+         {
+           fY -=7;
+         }   
+
+ 	}
+ 	void show()
+ 	{
+    if (fX <= mouseX == true)
+    {
+       image(fairyTwo,fX,fY);
+    } 
+ 	else 
+ 	{
+ 		image(fairyImage,fX,fY);
+ 	}
+ }
  }
